@@ -113,7 +113,7 @@ const HeroSection = ({ darkMode }) => {
     return (
         <section
             ref={sectionRef}
-            className={`relative min-h-screen pt-20 lg:pt-0 overflow-hidden ${darkMode ? 'bg-dark-primary-bg' : 'bg-primary-bg'
+            className={`relative min-h-screen pt-20 lg:pt-0 overflow-hidden ${darkMode ? 'bg-dark-primary-bg' : 'bg-white'
                 }`}
         >
             {/* Simple Decorative Objects */}
@@ -208,7 +208,7 @@ const HeroSection = ({ darkMode }) => {
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="relative z-20 max-w-3xl mx-auto text-center lg:py-24"
+                        className="relative z-20 max-w-2xl mx-auto text-center lg:py-20"
                     >
                         <motion.div
                             variants={itemVariants}
@@ -224,7 +224,7 @@ const HeroSection = ({ darkMode }) => {
 
                         <motion.h1
                             variants={itemVariants}
-                            className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+                            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5 ${darkMode ? 'text-white' : 'text-gray-900'}`}
                         >
                             Every Hire,{' '}
                             <span className="text-primary">Faster</span> and{' '}
@@ -233,7 +233,7 @@ const HeroSection = ({ darkMode }) => {
 
                         <motion.p
                             variants={itemVariants}
-                            className={`text-lg sm:text-xl max-w-2xl mx-auto mb-10 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                            className={`text-base sm:text-lg max-w-xl mx-auto mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
                         >
                             Stop losing great candidates to slow, manual hiring processes. Let AI handle the heavy lifting while you focus on building your team.
                         </motion.p>
@@ -244,23 +244,23 @@ const HeroSection = ({ darkMode }) => {
                         >
                             <motion.a
                                 href="#cta"
-                                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
                                 whileHover={{ scale: 1.05, y: -3 }}
                                 whileTap={{ scale: 0.98 }}
                             >
                                 Start Hiring Smarter
-                                <ArrowRight className="w-5 h-5" />
+                                <ArrowRight className="w-4 h-4" />
                             </motion.a>
                             <motion.a
-                                href="#solution"
-                                className={`w-full sm:w-auto px-8 py-4 rounded-xl border-2 font-semibold text-lg flex items-center justify-center gap-2 transition-all duration-300 ${darkMode
+                                href="#flowchart"
+                                className={`w-full sm:w-auto px-6 py-3 rounded-xl border-2 font-semibold text-base flex items-center justify-center gap-2 transition-all duration-300 ${darkMode
                                     ? 'border-dark-secondary text-white hover:bg-dark-secondary-bg'
                                     : 'border-secondary text-gray-700 hover:bg-secondary'
                                     }`}
                                 whileHover={{ scale: 1.05, y: -3 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <Play className="w-5 h-5" />
+                                <Play className="w-4 h-4" />
                                 See How It Works
                             </motion.a>
                         </motion.div>

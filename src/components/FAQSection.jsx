@@ -29,7 +29,7 @@ const FAQSection = ({ darkMode }) => {
     ]
 
     return (
-        <section id="faq" className={`py-20 lg:py-32 relative overflow-hidden ${darkMode ? 'bg-dark-primary-bg' : 'bg-primary-bg'}`}>
+        <section id="faq" className={`py-20 lg:py-32 relative overflow-hidden ${darkMode ? 'bg-dark-primary-bg' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'}`}>
             {/* Simple decorative objects */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -54,8 +54,8 @@ const FAQSection = ({ darkMode }) => {
                     className="text-center mb-16"
                 >
                     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 mb-6 ${darkMode
-                            ? 'bg-dark-secondary-bg border-accent-3'
-                            : 'bg-secondary-bg border-primary'
+                        ? 'bg-dark-secondary-bg border-accent-3'
+                        : 'bg-secondary-bg border-primary'
                         }`}>
                         <HelpCircle className={`w-4 h-4 ${darkMode ? 'text-accent-3' : 'text-primary'}`} />
                         <span className={`text-sm font-medium ${darkMode ? 'text-accent-1' : 'text-primary'}`}>Got Questions?</span>

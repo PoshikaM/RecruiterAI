@@ -65,8 +65,8 @@ const Footer = ({ darkMode }) => {
                                     href={social.href}
                                     aria-label={social.label}
                                     className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${darkMode
-                                            ? 'bg-dark-primary-bg text-gray-400 hover:text-white hover:bg-primary'
-                                            : 'bg-white text-gray-500 hover:text-primary hover:bg-primary-bg shadow-sm'
+                                        ? 'bg-dark-primary-bg text-gray-400 hover:text-white hover:bg-primary'
+                                        : 'bg-white text-gray-500 hover:text-primary hover:bg-primary-bg shadow-sm'
                                         }`}
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
@@ -89,8 +89,8 @@ const Footer = ({ darkMode }) => {
                                         <a
                                             href={link.href}
                                             className={`text-sm transition-colors ${darkMode
-                                                    ? 'text-gray-400 hover:text-white'
-                                                    : 'text-gray-600 hover:text-primary'
+                                                ? 'text-gray-400 hover:text-white'
+                                                : 'text-gray-600 hover:text-primary'
                                                 }`}
                                         >
                                             {link.name}
@@ -105,9 +105,6 @@ const Footer = ({ darkMode }) => {
                 {/* Bottom Bar */}
                 <div className={`mt-12 pt-8 border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                            © 2024 RecruiterAI. All rights reserved.
-                        </p>
                         <div className="flex items-center gap-6">
                             <a
                                 href="#"
