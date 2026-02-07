@@ -86,7 +86,7 @@ const TestimonialsSection = ({ darkMode }) => {
     }
 
     return (
-        <section id="testimonials" className={`py-20 lg:py-28 relative overflow-hidden ${darkMode ? 'bg-dark-primary-bg' : 'bg-primary-bg'}`}>
+        <section id="testimonials" className={`py-20 lg:py-28 relative overflow-hidden ${darkMode ? 'bg-dark-secondary-bg' : 'bg-white'}`}>
             {/* Large Orange Quote Mark - Top Right */}
             <div className="absolute top-12 right-[12%] hidden lg:block">
                 <span className="text-[160px] font-serif text-orange-500 leading-none select-none">"</span>

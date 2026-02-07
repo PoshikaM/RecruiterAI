@@ -186,6 +186,16 @@ const FlowchartSection = ({ darkMode }) => {
                     </motion.div>
                 </motion.div>
             </div>
+
+            {/* Bottom Wave Divider */}
+            <div className="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+                    <path
+                        d="M0 60L48 52.5C96 45 192 30 288 22.5C384 15 480 15 576 20C672 25 768 35 864 37.5C960 40 1056 35 1152 32.5C1248 30 1344 30 1392 30L1440 30V60H1392C1344 60 1248 60 1152 60C1056 60 960 60 864 60C768 60 672 60 576 60C480 60 384 60 288 60C192 60 96 60 48 60H0Z"
+                        fill={darkMode ? '#404040' : '#ffffff'}
+                    />
+                </svg>
+            </div>
         </section>
     )
 }
@@ -193,9 +203,9 @@ const FlowchartSection = ({ darkMode }) => {
 // Flowchart Visualization Component
 const FlowchartVisualization = ({ nodes, color, darkMode, isInView }) => {
     return (
-        <div className="relative">
+        <div className="relative pt-10 pr-4">
             {/* Desktop: Horizontal Flow */}
-            <div className="hidden lg:flex items-start justify-between gap-4 overflow-x-auto pb-4">
+            <div className="hidden lg:flex items-start justify-start gap-2 overflow-x-auto pb-4 pt-6 px-2">
                 {nodes.map((node, index) => (
                     <FlowNode
                         key={node.id}
@@ -211,7 +221,7 @@ const FlowchartVisualization = ({ nodes, color, darkMode, isInView }) => {
             </div>
 
             {/* Mobile: Vertical Flow */}
-            <div className="lg:hidden flex flex-col items-center gap-2">
+            <div className="lg:hidden flex flex-col items-center gap-2 pt-4">
                 {nodes.map((node, index) => (
                     <FlowNodeMobile
                         key={node.id}
@@ -382,7 +392,7 @@ const FlowNodeMobile = ({ node, index, color, darkMode, isInView, isLast }) => {
         >
             {/* Type Label */}
             {(node.type === 'yes' || node.type === 'no') && (
-                <span className={`text-xs font-bold mb-1 px-2 py-0.5 rounded ${node.type === 'yes'
+                <span className={`text-xs font-bold mb-2 px-2 py-0.5 rounded ${node.type === 'yes'
                     ? 'text-emerald-500 bg-emerald-100 dark:bg-emerald-900/50'
                     : 'text-rose-500 bg-rose-100 dark:bg-rose-900/50'
                     }`}>
@@ -390,22 +400,36 @@ const FlowNodeMobile = ({ node, index, color, darkMode, isInView, isLast }) => {
                 </span>
             )}
 
-            {/* Node Box */}
-            <div className={`w-full max-w-xs ${style.bgColor} border-2 ${style.borderColor} ${node.type === 'decision' ? 'rounded-xl' : 'rounded-2xl'} p-4 flex items-center gap-3 shadow-md`}>
-                <div className={`w-10 h-10 ${style.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <Icon className="w-5 h-5 text-white" />
+            {/* Decision Diamond - Special shape for mobile */}
+            {node.type === 'decision' ? (
+                <div className="relative my-4">
+                    <div className={`w-20 h-20 ${style.bgColor} border-2 ${style.borderColor} transform rotate-45 flex items-center justify-center shadow-md`}>
+                        <div className="-rotate-45 text-center flex flex-col items-center">
+                            <Icon className="w-4 h-4 text-amber-500 mb-1" />
+                            <p className={`text-[10px] font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                                {node.label}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <p className={`text-sm font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {node.label}
-                    </p>
-                    {node.sublabel && (
-                        <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                            {node.sublabel}
+            ) : (
+                /* Regular Node Box */
+                <div className={`w-full max-w-xs ${style.bgColor} border-2 ${style.borderColor} rounded-2xl p-4 flex items-center gap-3 shadow-md`}>
+                    <div className={`w-10 h-10 ${style.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                        <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                        <p className={`text-sm font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                            {node.label}
                         </p>
-                    )}
+                        {node.sublabel && (
+                            <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                                {node.sublabel}
+                            </p>
+                        )}
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* Connector Line */}
             {!isLast && (

@@ -98,7 +98,7 @@ const ImpactSection = ({ darkMode }) => {
             id="impact"
             className="py-16 lg:py-24 relative overflow-hidden"
             style={{
-                backgroundColor: darkMode ? colors.darkBg : colors.lightBg
+                backgroundColor: darkMode ? colors.darkSecondaryBg : '#FFFFFF'
             }}
         >
             <div ref={ref} className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -204,6 +204,16 @@ const ImpactSection = ({ darkMode }) => {
                         </motion.div>
                     ))}
                 </motion.div>
+            </div>
+
+            {/* Bottom Wave Divider */}
+            <div className="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+                    <path
+                        d="M0 60L48 55C96 50 192 40 288 35C384 30 480 30 576 32.5C672 35 768 40 864 40C960 40 1056 35 1152 30C1248 25 1344 20 1392 17.5L1440 15V60H1392C1344 60 1248 60 1152 60C1056 60 960 60 864 60C768 60 672 60 576 60C480 60 384 60 288 60C192 60 96 60 48 60H0Z"
+                        fill={darkMode ? '#000000' : '#EFF6FF'}
+                    />
+                </svg>
             </div>
         </section>
     )
